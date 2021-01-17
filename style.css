@@ -1,0 +1,64 @@
+html, body {
+    margin: 0;
+    height: 100%;
+    background: linear-gradient(to bottom right, #FFFFFF, #5296A5);
+    font-family: Verdana,Helvetica,Arial,sans-serif;
+    color: #222222;
+}
+
+#copy-emoji-output {
+    font-size: 32px;
+    background: #4CAF50;
+    color: #EEEEEE;
+    border: none;
+}
+
+#copy-emoji-output:disabled {
+    color: lightgray;
+    background: gray;
+}
+
+h1 {
+    margin-top: 40px;
+}
+
+h1, h2, p {
+    text-align: center;
+}
+
+#alphabet-display {
+    display: block;
+    width: 60%;
+    text-align: center;
+    margin: 20px auto;
+}
+
+button, textarea {
+    display: block;
+    margin: 0 auto 25px;
+}
+
+.slack-alphabet-char {
+    height: 50px;
+    width: 50px;
+    margin: 8px 0;
+}
+
+.slack-alphabet-space {
+    display: inline-block;
+    padding: 0 10px;
+    margin: 8px 0;
+}
+
+#status {
+    font-weight: bold;
+    text-align: center;
+}
+
+.success {
+    color: green;
+}
+
+.error {
+    color: red;
+}
