@@ -33,7 +33,7 @@ function getSlackCodeForChar(c) {
     return elem.code;
 }
 
-function addImgForChar(c) {
+function addImgForChar(c, containerElem) {
     let elem = null;
     if (c === ' ') {
         elem = document.createElement('div')
@@ -43,7 +43,7 @@ function addImgForChar(c) {
         elem.src = mapping[c.toLowerCase()].imgUrl
         elem.className = "slack-alphabet-char"
     }
-    slackAlphabetDisplayArea.appendChild(elem);
+    containerElem.appendChild(elem);
 }
 
 function onTextInput(text) {
@@ -65,7 +65,14 @@ function onTextInput(text) {
     } else if (isValidState) {
         copyButton.disabled = false;
         statusText.innerText = '';
-        text.split("").forEach(c => addImgForChar(c));
+        text.split(" ").forEach(word => {
+            const wordContainer = document.createElement("div")
+            wordContainer.className = "word-container";
+            slackAlphabetDisplayArea.appendChild(wordContainer);
+            word.split("").forEach(c => addImgForChar(c, wordContainer));
+            addImgForChar(' ', slackAlphabetDisplayArea);
+        });
+        slackAlphabetDisplayArea.removeChild(slackAlphabetDisplayArea.lastChild);
     } else {
         copyButton.disabled = true;
         statusText.className = "error";
